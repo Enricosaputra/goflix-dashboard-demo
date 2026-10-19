@@ -1,0 +1,28 @@
+# The dashboard with PostgreSQL, the same database production uses.
+# docker compose up --build, then open http://localhost:8080
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: goflix_demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 2s
+      retries: 15
+
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_DATABASE: goflix_demo
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+      DEMO_RESET_HOURS: 3
+    depends_on:
+      db:
+        condition: service_healthy

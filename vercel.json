@@ -1,0 +1,32 @@
+{
+    "framework": null,
+    "regions": [
+        "sin1"
+    ],
+    "buildCommand": "echo 'Assets are prebuilt in public/build'",
+    "outputDirectory": "public",
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.4",
+            "maxDuration": 60
+        }
+    },
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/build/$1"
+        },
+        {
+            "src": "/(favicon\\.ico|robots\\.txt)",
+            "dest": "/$1"
+        },
+        {
+            "src": "/(goflix-(?:presentasi|walkthrough)\\.(?:pdf|pptx))",
+            "dest": "/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ]
+}
