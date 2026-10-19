@@ -115,6 +115,11 @@ This demo targets Laravel 10, which is end-of-life. `composer.json` ignores the 
 only. None of them reach this app: the debug page is off outside local, there are no signed URLs, and email
 addresses are checked with a plain pattern instead of Laravel's `email` rule. A real deployment should upgrade.
 
+## Slides
+
+`docs/` has a walkthrough deck in Bahasa Indonesia (`Goflix-presentasi`) and English (`Goflix-walkthrough`),
+each as `.pptx` and `.pdf`. The app also serves them from its root, e.g. `/goflix-walkthrough.pdf`.
+
 ## How it is organised
 
 ```
