@@ -4,15 +4,15 @@
     </x-page-header>
 
     <form method="GET" class="mb-4">
-        <select name="status" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm" onchange="this.form.submit()">
+        <select name="status" class="rounded-lg border border-ink-300 bg-white px-3 py-2 text-sm shadow-sm" onchange="this.form.submit()">
             <option value="">{{ __('All rentals') }}</option>
             <option value="active" @selected(request('status') === 'active')>{{ __('Still running') }}</option>
         </select>
     </form>
 
-    <div class="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
+    <div class="overflow-x-auto rounded-xl border border-ink-200 bg-white shadow-sm">
         <table class="w-full min-w-[640px] text-left text-sm">
-            <thead class="text-xs uppercase tracking-wide text-slate-400">
+            <thead class="text-xs uppercase tracking-wide text-ink-400">
                 <tr>
                     <th class="px-4 py-3 font-medium">{{ __('Paid on') }}</th>
                     <th class="px-4 py-3 font-medium">{{ __('User') }}</th>
@@ -21,12 +21,12 @@
                     <th class="px-4 py-3 text-right font-medium">{{ __('Paid') }}</th>
                 </tr>
             </thead>
-            <tbody class="divide-y divide-slate-100">
+            <tbody class="divide-y divide-ink-100">
                 @forelse ($rentals as $r)
                     <tr>
-                        <td class="whitespace-nowrap px-4 py-3 text-slate-600">{{ $r->created_at->format('Y-m-d') }}</td>
+                        <td class="whitespace-nowrap px-4 py-3 text-ink-600">{{ $r->created_at->format('Y-m-d') }}</td>
                         <td class="px-4 py-3"><a href="{{ route('users.show', $r->user) }}" class="font-medium hover:underline">{{ $r->user->name }}</a></td>
-                        <td class="px-4 py-3 text-slate-600">{{ $r->movie->title }}</td>
+                        <td class="px-4 py-3 text-ink-600">{{ $r->movie->title }}</td>
                         <td class="whitespace-nowrap px-4 py-3">
                             <x-badge :tone="$r->isActive() ? 'green' : 'slate'">{{ $r->expires_at->format('Y-m-d H:i') }}</x-badge>
                         </td>

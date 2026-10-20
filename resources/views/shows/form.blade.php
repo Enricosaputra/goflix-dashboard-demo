@@ -34,7 +34,7 @@
             @error('episodes') <p class="mb-3 rounded-lg bg-red-50 p-3 text-sm text-red-800">{{ $message }}</p> @enderror
             <div class="-mx-6 overflow-x-auto px-6">
                 <table class="w-full min-w-[640px] text-left text-sm">
-                    <thead class="text-xs uppercase tracking-wide text-slate-400">
+                    <thead class="text-xs uppercase tracking-wide text-ink-400">
                         <tr>
                             <th class="pb-2 pr-3 font-medium">{{ __('Season') }}</th>
                             <th class="pb-2 pr-3 font-medium">{{ __('No.') }}</th>
@@ -47,16 +47,16 @@
                         @foreach ($rows as $i => $row)
                             <tr>
                                 <td class="py-1 pr-3">
-                                    <select name="episodes[{{ $i }}][season_id]" class="rounded-lg border border-slate-300 px-2 py-2 text-sm shadow-sm">
+                                    <select name="episodes[{{ $i }}][season_id]" class="rounded-lg border border-ink-300 px-2 py-2 text-sm shadow-sm">
                                         @foreach ($seasons as $season)
                                             <option value="{{ $season->id }}" @selected((string) ($row['season_id'] ?? '') === (string) $season->id)>{{ $season->name }}</option>
                                         @endforeach
                                     </select>
                                 </td>
-                                <td class="py-1 pr-3"><input name="episodes[{{ $i }}][episode_number]" type="number" min="1" value="{{ $row['episode_number'] ?? '' }}" class="w-20 rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm"></td>
-                                <td class="py-1 pr-3"><input name="episodes[{{ $i }}][title]" value="{{ $row['title'] ?? '' }}" placeholder="{{ __('Episode title') }}" class="w-full min-w-[14rem] rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm"></td>
-                                <td class="py-1 pr-3"><input name="episodes[{{ $i }}][duration_minutes]" type="number" min="1" value="{{ $row['duration_minutes'] ?? '' }}" class="w-24 rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm"></td>
-                                <td class="py-1"><input type="checkbox" name="episodes[{{ $i }}][is_premium]" value="1" @checked(! empty($row['is_premium'])) class="h-4 w-4 rounded border-slate-300"></td>
+                                <td class="py-1 pr-3"><input name="episodes[{{ $i }}][episode_number]" type="number" min="1" value="{{ $row['episode_number'] ?? '' }}" class="w-20 rounded-lg border border-ink-300 px-3 py-2 text-sm shadow-sm"></td>
+                                <td class="py-1 pr-3"><input name="episodes[{{ $i }}][title]" value="{{ $row['title'] ?? '' }}" placeholder="{{ __('Episode title') }}" class="w-full min-w-[14rem] rounded-lg border border-ink-300 px-3 py-2 text-sm shadow-sm"></td>
+                                <td class="py-1 pr-3"><input name="episodes[{{ $i }}][duration_minutes]" type="number" min="1" value="{{ $row['duration_minutes'] ?? '' }}" class="w-24 rounded-lg border border-ink-300 px-3 py-2 text-sm shadow-sm"></td>
+                                <td class="py-1"><input type="checkbox" name="episodes[{{ $i }}][is_premium]" value="1" @checked(! empty($row['is_premium'])) class="h-4 w-4 rounded border-ink-300"></td>
                             </tr>
                         @endforeach
                     </tbody>

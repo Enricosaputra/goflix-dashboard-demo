@@ -2,8 +2,8 @@
 
 {{-- $options is a value => label array --}}
 <div {{ $attributes->only('class') }}>
-    <label for="{{ $name }}" class="mb-1.5 block text-sm font-medium text-slate-700">{{ $label }}</label>
-    <select id="{{ $name }}" name="{{ $name }}" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900/10">
+    <label for="{{ $name }}" class="mb-1.5 block text-sm font-medium text-ink-700">{{ $label }}</label>
+    <select id="{{ $name }}" name="{{ $name }}" class="w-full rounded-lg border border-ink-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-ink-900 focus:outline-none focus:ring-2 focus:ring-ink-900/10">
         @if ($blank !== null)
             <option value="">{{ $blank }}</option>
         @endif

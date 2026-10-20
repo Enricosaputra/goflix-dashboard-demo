@@ -11,8 +11,8 @@ if (canvas) {
         data: {
             labels,
             datasets: [
-                { label: series[0], data: subscriptions, backgroundColor: '#0f172a' },
-                { label: series[1], data: rentals, backgroundColor: '#e11d48' },
+                { label: series[0], data: subscriptions, backgroundColor: '#15211b' },
+                { label: series[1], data: rentals, backgroundColor: '#1e9e57' },
             ],
         },
         options: {

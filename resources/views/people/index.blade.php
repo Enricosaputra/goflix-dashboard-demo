@@ -4,7 +4,7 @@
     </x-page-header>
 
     <x-search>
-        <select name="role" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm">
+        <select name="role" class="rounded-lg border border-ink-300 bg-white px-3 py-2 text-sm shadow-sm">
             <option value="">{{ __('All roles') }}</option>
             @foreach ($roles as $role)
                 <option value="{{ $role->value }}" @selected(request('role') === $role->value)>{{ $role->label() }}</option>
@@ -16,7 +16,7 @@
         @forelse ($people as $person)
             <tr>
                 <td class="px-4 py-3 font-medium">{{ $person->name }}</td>
-                <td class="px-4 py-3 text-slate-600">{{ $person->role->label() }}</td>
+                <td class="px-4 py-3 text-ink-600">{{ $person->role->label() }}</td>
                 <td class="px-4 py-3 text-right tabular-nums">{{ $person->movies_count }}</td>
                 <td class="px-4 py-3"><x-active-badge :active="$person->is_active" /></td>
                 <td class="px-4 py-3">

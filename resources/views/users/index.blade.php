@@ -4,7 +4,7 @@
     </x-page-header>
 
     <x-search>
-        <select name="status" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm">
+        <select name="status" class="rounded-lg border border-ink-300 bg-white px-3 py-2 text-sm shadow-sm">
             <option value="">{{ __('Everyone') }}</option>
             <option value="active" @selected(request('status') === 'active')>{{ __('Subscribed now') }}</option>
             <option value="expired" @selected(request('status') === 'expired')>{{ __('Subscription expired') }}</option>
@@ -17,9 +17,9 @@
             <tr>
                 <td class="px-4 py-3">
                     <a href="{{ route('users.show', $user) }}" class="block font-medium hover:underline">{{ $user->name }}</a>
-                    <span class="block text-xs text-slate-500">{{ $user->email }}</span>
+                    <span class="block text-xs text-ink-500">{{ $user->email }}</span>
                 </td>
-                <td class="px-4 py-3 text-slate-600">{{ $user->login_type->label() }}</td>
+                <td class="px-4 py-3 text-ink-600">{{ $user->login_type->label() }}</td>
                 <td class="px-4 py-3"><x-subscription-badge :user="$user" /></td>
                 <td class="px-4 py-3 text-right tabular-nums">{{ $user->subscriptions_count }}</td>
                 <td class="px-4 py-3"><x-active-badge :active="$user->is_active" /></td>

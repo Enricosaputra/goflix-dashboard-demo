@@ -29,8 +29,8 @@
             <div class="space-y-2">
                 @foreach ($rows as $i => $row)
                     <div class="grid gap-2 sm:grid-cols-2">
-                        <input name="features[{{ $i }}][name]" value="{{ $row['name'] }}" placeholder="{{ __('e.g. All content') }}" class="rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm">
-                        <input name="features[{{ $i }}][value]" value="{{ $row['value'] }}" placeholder="{{ __('e.g. Yes') }}" class="rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm">
+                        <input name="features[{{ $i }}][name]" value="{{ $row['name'] }}" placeholder="{{ __('e.g. All content') }}" class="rounded-lg border border-ink-300 px-3 py-2 text-sm shadow-sm">
+                        <input name="features[{{ $i }}][value]" value="{{ $row['value'] }}" placeholder="{{ __('e.g. Yes') }}" class="rounded-lg border border-ink-300 px-3 py-2 text-sm shadow-sm">
                     </div>
                 @endforeach
             </div>

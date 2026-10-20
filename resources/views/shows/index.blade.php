@@ -10,12 +10,12 @@
             <tr>
                 <td class="px-4 py-3">
                     <span class="block font-medium">{{ $show->title }}</span>
-                    <span class="block text-xs text-slate-500">{{ $show->release_year }} · {{ $show->language->name }}@if ($show->maturity_rating) · {{ $show->maturity_rating }}@endif</span>
+                    <span class="block text-xs text-ink-500">{{ $show->release_year }} · {{ $show->language->name }}@if ($show->maturity_rating) · {{ $show->maturity_rating }}@endif</span>
                 </td>
-                <td class="px-4 py-3 text-slate-600">{{ $show->genres->pluck('name')->implode(', ') }}</td>
-                <td class="px-4 py-3 text-slate-600">
+                <td class="px-4 py-3 text-ink-600">{{ $show->genres->pluck('name')->implode(', ') }}</td>
+                <td class="px-4 py-3 text-ink-600">
                     {{ trans_choice(':count episode|:count episodes', $show->episodes->count()) }}
-                    <span class="block text-xs text-slate-500">{{ trans_choice(':count season|:count seasons', $show->episodes->unique('season_id')->count()) }}</span>
+                    <span class="block text-xs text-ink-500">{{ trans_choice(':count season|:count seasons', $show->episodes->unique('season_id')->count()) }}</span>
                 </td>
                 <td class="px-4 py-3"><x-badge :tone="$show->is_premium ? 'amber' : 'green'">{{ $show->is_premium ? __('Premium') : __('Free') }}</x-badge></td>
                 <td class="px-4 py-3"><x-active-badge :active="$show->is_active" /></td>

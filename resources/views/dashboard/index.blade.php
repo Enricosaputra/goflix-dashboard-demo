@@ -13,10 +13,10 @@
 
     <div class="grid grid-cols-2 gap-4 lg:grid-cols-4">
         @foreach ($cards as [$label, $value, $note])
-            <div class="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <div class="rounded-xl border border-ink-200 bg-white p-5 shadow-sm">
                 <p class="whitespace-nowrap text-xl font-bold">{{ $value }}</p>
-                <p class="text-sm text-slate-500">{{ $label }}</p>
-                <p class="mt-1 text-xs text-slate-400">{{ $note }}</p>
+                <p class="text-sm text-ink-500">{{ $label }}</p>
+                <p class="mt-1 text-xs text-ink-400">{{ $note }}</p>
             </div>
         @endforeach
     </div>
@@ -27,14 +27,14 @@
         </x-card>
 
         <x-card :title="__('Ending this week')" :description="__('Subscriptions to remind about renewal')">
-            <ul class="-my-2 divide-y divide-slate-100 text-sm">
+            <ul class="-my-2 divide-y divide-ink-100 text-sm">
                 @forelse ($expiring as $u)
                     <li class="flex justify-between gap-3 py-2">
                         <a href="{{ route('users.show', $u) }}" class="truncate hover:underline">{{ $u->name }}</a>
-                        <span class="whitespace-nowrap text-slate-500">{{ $u->subscription_ends_on->translatedFormat('j M') }}</span>
+                        <span class="whitespace-nowrap text-ink-500">{{ $u->subscription_ends_on->translatedFormat('j M') }}</span>
                     </li>
                 @empty
-                    <li class="py-2 text-slate-500">{{ __('Nothing here yet.') }}</li>
+                    <li class="py-2 text-ink-500">{{ __('Nothing here yet.') }}</li>
                 @endforelse
             </ul>
         </x-card>
@@ -46,8 +46,8 @@
             <ul class="space-y-3">
                 @foreach ($topMovies as $row)
                     <li>
-                        <div class="mb-1 flex justify-between text-sm"><span class="truncate">{{ $row['title'] }}</span><span class="text-slate-500">{{ $row['viewers'] }}</span></div>
-                        <div class="h-2 overflow-hidden rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-900" style="width: {{ $bar($row['viewers'], $most) }}%"></div></div>
+                        <div class="mb-1 flex justify-between text-sm"><span class="truncate">{{ $row['title'] }}</span><span class="text-ink-500">{{ $row['viewers'] }}</span></div>
+                        <div class="h-2 overflow-hidden rounded-full bg-ink-100"><div class="h-full rounded-full bg-ink-900" style="width: {{ $bar($row['viewers'], $most) }}%"></div></div>
                     </li>
                 @endforeach
             </ul>
@@ -58,8 +58,8 @@
             <ul class="space-y-3">
                 @foreach ($genres as $genre => $plays)
                     <li>
-                        <div class="mb-1 flex justify-between text-sm"><span>{{ $genre }}</span><span class="text-slate-500">{{ $plays }}</span></div>
-                        <div class="h-2 overflow-hidden rounded-full bg-slate-100"><div class="h-full rounded-full bg-rose-600" style="width: {{ $bar($plays, $most) }}%"></div></div>
+                        <div class="mb-1 flex justify-between text-sm"><span>{{ $genre }}</span><span class="text-ink-500">{{ $plays }}</span></div>
+                        <div class="h-2 overflow-hidden rounded-full bg-ink-100"><div class="h-full rounded-full bg-accent-600" style="width: {{ $bar($plays, $most) }}%"></div></div>
                     </li>
                 @endforeach
             </ul>
@@ -70,8 +70,8 @@
             <ul class="space-y-3">
                 @foreach ($packages as $name => $count)
                     <li>
-                        <div class="mb-1 flex justify-between text-sm"><span>{{ $name }}</span><span class="text-slate-500">{{ $count }}</span></div>
-                        <div class="h-2 overflow-hidden rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-900" style="width: {{ $bar($count, $most) }}%"></div></div>
+                        <div class="mb-1 flex justify-between text-sm"><span>{{ $name }}</span><span class="text-ink-500">{{ $count }}</span></div>
+                        <div class="h-2 overflow-hidden rounded-full bg-ink-100"><div class="h-full rounded-full bg-ink-900" style="width: {{ $bar($count, $most) }}%"></div></div>
                     </li>
                 @endforeach
             </ul>
@@ -82,8 +82,8 @@
             <ul class="space-y-3">
                 @foreach ($loginTypes as $type => $count)
                     <li>
-                        <div class="mb-1 flex justify-between text-sm"><span>{{ \App\Enums\LoginType::from($type)->label() }}</span><span class="text-slate-500">{{ $count }}</span></div>
-                        <div class="h-2 overflow-hidden rounded-full bg-slate-100"><div class="h-full rounded-full bg-slate-400" style="width: {{ $bar($count, $most) }}%"></div></div>
+                        <div class="mb-1 flex justify-between text-sm"><span>{{ \App\Enums\LoginType::from($type)->label() }}</span><span class="text-ink-500">{{ $count }}</span></div>
+                        <div class="h-2 overflow-hidden rounded-full bg-ink-100"><div class="h-full rounded-full bg-ink-400" style="width: {{ $bar($count, $most) }}%"></div></div>
                     </li>
                 @endforeach
             </ul>
@@ -91,14 +91,14 @@
     </div>
 
     <x-card :title="__('Watched recently')" class="mt-6">
-        <ul class="-my-2 divide-y divide-slate-100 text-sm">
+        <ul class="-my-2 divide-y divide-ink-100 text-sm">
             @foreach ($recent as $w)
                 <li class="flex items-center justify-between gap-3 py-2">
                     <span class="min-w-0">
                         <span class="block truncate font-medium">{{ $w->watchable instanceof \App\Models\Episode ? $w->watchable->label() : $w->watchable?->title }}</span>
-                        <span class="block text-xs text-slate-500">{{ $w->user->name }} · {{ __(':percent% watched', ['percent' => $w->progress()]) }}</span>
+                        <span class="block text-xs text-ink-500">{{ $w->user->name }} · {{ __(':percent% watched', ['percent' => $w->progress()]) }}</span>
                     </span>
-                    <span class="whitespace-nowrap text-xs text-slate-500">{{ $w->updated_at->diffForHumans() }}</span>
+                    <span class="whitespace-nowrap text-xs text-ink-500">{{ $w->updated_at->diffForHumans() }}</span>
                 </li>
             @endforeach
         </ul>

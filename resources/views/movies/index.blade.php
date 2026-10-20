@@ -4,7 +4,7 @@
     </x-page-header>
 
     <x-search>
-        <select name="access" class="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm">
+        <select name="access" class="rounded-lg border border-ink-300 bg-white px-3 py-2 text-sm shadow-sm">
             <option value="">{{ __('Free and premium') }}</option>
             <option value="free" @selected(request('access') === 'free')>{{ __('Free') }}</option>
             <option value="premium" @selected(request('access') === 'premium')>{{ __('Premium') }}</option>
@@ -16,14 +16,14 @@
             <tr>
                 <td class="px-4 py-3">
                     <span class="block font-medium">{{ $movie->title }}</span>
-                    <span class="block text-xs text-slate-500">{{ $movie->release_year }} · {{ $movie->duration_minutes }} {{ __('min') }}@if ($movie->maturity_rating) · {{ $movie->maturity_rating }}@endif @if ($movie->imdb_rating) · IMDb {{ number_format($movie->imdb_rating, 1) }}@endif</span>
+                    <span class="block text-xs text-ink-500">{{ $movie->release_year }} · {{ $movie->duration_minutes }} {{ __('min') }}@if ($movie->maturity_rating) · {{ $movie->maturity_rating }}@endif @if ($movie->imdb_rating) · IMDb {{ number_format($movie->imdb_rating, 1) }}@endif</span>
                 </td>
-                <td class="px-4 py-3 text-slate-600">{{ $movie->genres->pluck('name')->implode(', ') }}</td>
-                <td class="px-4 py-3 text-slate-600">{{ $movie->language->name }}</td>
+                <td class="px-4 py-3 text-ink-600">{{ $movie->genres->pluck('name')->implode(', ') }}</td>
+                <td class="px-4 py-3 text-ink-600">{{ $movie->language->name }}</td>
                 <td class="px-4 py-3">
                     <x-badge :tone="$movie->is_premium ? 'amber' : 'green'">{{ $movie->is_premium ? __('Premium') : __('Free') }}</x-badge>
                     @if ($movie->isRentable())
-                        <span class="mt-1 block whitespace-nowrap text-xs text-slate-500">{{ __('rent :price / :days days', ['price' => rupiah($movie->rent_price), 'days' => $movie->rent_days]) }}</span>
+                        <span class="mt-1 block whitespace-nowrap text-xs text-ink-500">{{ __('rent :price / :days days', ['price' => rupiah($movie->rent_price), 'days' => $movie->rent_days]) }}</span>
                     @endif
                 </td>
                 <td class="px-4 py-3 text-right tabular-nums">{{ $movie->watches_count }}</td>

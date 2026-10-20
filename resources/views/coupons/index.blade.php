@@ -10,10 +10,10 @@
             <tr>
                 <td class="px-4 py-3">
                     <span class="block font-mono font-medium">{{ $coupon->code }}</span>
-                    @if ($coupon->single_use) <span class="block text-xs text-slate-500">{{ __('once per user') }}</span> @endif
+                    @if ($coupon->single_use) <span class="block text-xs text-ink-500">{{ __('once per user') }}</span> @endif
                 </td>
                 <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">{{ $coupon->label() }}</td>
-                <td class="whitespace-nowrap px-4 py-3 text-slate-600">{{ $coupon->starts_on->format('Y-m-d') }} - {{ $coupon->ends_on->format('Y-m-d') }}</td>
+                <td class="whitespace-nowrap px-4 py-3 text-ink-600">{{ $coupon->starts_on->format('Y-m-d') }} - {{ $coupon->ends_on->format('Y-m-d') }}</td>
                 <td class="px-4 py-3 text-right tabular-nums">{{ $coupon->subscriptions_count + $coupon->rentals_count }}</td>
                 <td class="px-4 py-3">
                     @if ($coupon->is_active && $coupon->ends_on->lt(today()))

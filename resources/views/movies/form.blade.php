@@ -16,14 +16,14 @@
                 <x-checkbox-list name="genres" :label="__('Genres')" :options="$genres->pluck('name', 'id')" :selected="$movie->genres->pluck('id')" class="sm:col-span-2" />
                 <x-textarea name="description" :label="__('Description')" :value="$movie->description" class="sm:col-span-2" />
                 <div class="sm:col-span-2">
-                    <label for="people" class="mb-1.5 block text-sm font-medium text-slate-700">{{ __('Cast and crew') }}</label>
-                    <select id="people" name="people[]" multiple size="8" class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm">
+                    <label for="people" class="mb-1.5 block text-sm font-medium text-ink-700">{{ __('Cast and crew') }}</label>
+                    <select id="people" name="people[]" multiple size="8" class="w-full rounded-lg border border-ink-300 bg-white px-3 py-2 text-sm shadow-sm">
                         @php $credited = collect(old('people', $movie->people->pluck('id')))->map(fn ($v) => (string) $v)->all(); @endphp
                         @foreach ($people as $person)
                             <option value="{{ $person->id }}" @selected(in_array((string) $person->id, $credited, true))>{{ $person->name }} ({{ $person->role->label() }})</option>
                         @endforeach
                     </select>
-                    <p class="mt-1 text-xs text-slate-500">{{ __('Hold Ctrl (Cmd on Mac) to pick several.') }}</p>
+                    <p class="mt-1 text-xs text-ink-500">{{ __('Hold Ctrl (Cmd on Mac) to pick several.') }}</p>
                 </div>
             </div>
         </x-card>

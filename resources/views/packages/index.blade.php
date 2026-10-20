@@ -8,15 +8,15 @@
             <tr>
                 <td class="px-4 py-3">
                     <span class="block font-medium">{{ $package->name }}</span>
-                    <span class="block text-xs text-slate-500">{{ trans_choice(':count month|:count months', $package->duration_months) }}</span>
+                    <span class="block text-xs text-ink-500">{{ trans_choice(':count month|:count months', $package->duration_months) }}</span>
                 </td>
                 <td class="whitespace-nowrap px-4 py-3 text-right tabular-nums">{{ rupiah($package->price) }}</td>
-                <td class="px-4 py-3 text-xs text-slate-600">
+                <td class="px-4 py-3 text-xs text-ink-600">
                     {{ $package->max_quality }} · {{ trans_choice(':count device|:count devices', $package->max_devices) }}
                     @if ($package->watch_on_tv) · {{ __('TV') }} @endif
                     @if ($package->ads_free) · {{ __('no ads') }} @endif
                     @if ($package->features->isNotEmpty())
-                        <span class="block text-slate-500">{{ $package->features->map(fn ($f) => $f->value !== '' ? "{$f->name}: {$f->value}" : $f->name)->implode(' · ') }}</span>
+                        <span class="block text-ink-500">{{ $package->features->map(fn ($f) => $f->value !== '' ? "{$f->name}: {$f->value}" : $f->name)->implode(' · ') }}</span>
                     @endif
                 </td>
                 <td class="px-4 py-3 text-right tabular-nums">{{ $package->subscriptions_count }}</td>
